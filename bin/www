@@ -13,21 +13,21 @@ function initialize() {
   let port = null;
   let server = null;
 
-  function configureRuntimeEnvironment() {
-    /* eslint-disable global-require */
-    const environment = process.env.NODE_ENV || 'development';
-    console.info('environment', environment);
-    if (environment === 'development') {
-      require('dotenv').config();
-    } else if (environment === 'production') {
-      // TODO: May want to do something like the following: require('newrelic');
-    } else {
-      console.error('Please set your NODE_ENV to either `development` or `production`');
-    }
-    /* eslint-enable global-require */
+  // function configureRuntimeEnvironment() {
+  //   /* eslint-disable global-require */
+  //   const environment = process.env.NODE_ENV || 'development';
+  //   console.info('environment', environment);
+  //   if (environment === 'development') {
+  //     require('dotenv').config();
+  //   } else if (environment === 'production') {
+  //     // TODO: May want to do something like the following: require('newrelic');
+  //   } else {
+  //     console.error('Please set your NODE_ENV to either `development` or `production`');
+  //   }
+  //   /* eslint-enable global-require */
   
-    return require('../config');
-  }
+  //   return require('../config');
+  // }
   
   function getLogFunctionFactory(config) {
     const debug = require('debug');
@@ -64,7 +64,7 @@ function initialize() {
   
   function createServer(app) {
     const http = require('http');
-    return http.createServer(app);  
+    return http.createServer(app);  // app.listen() is a convenience method. use it instead of all this??? Action Item: Simplify this file.
   }
   
   function onError(error) {

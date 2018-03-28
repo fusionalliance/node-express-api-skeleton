@@ -3,7 +3,6 @@ function configure(app) {
 
   require('./configureBodyParser')(app);
   require('./configureCompression')(app);
-  require('./configureLogger')(app);
   require('./configureSwagger')(app);
   require('./configureRoutes')(app);
 
