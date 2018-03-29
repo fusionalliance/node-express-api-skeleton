@@ -80,6 +80,26 @@ SET DEBUG=fusion-node-express-api-skeleton:* & npm run devstart
 
 ## Troubleshooting
 
+### Line endings are CRLF instead of LF (Windows only)
+
+The line endings in this application are LF instead of CRLF. The commands below will configure your Windows environment for LF only. These changes will be applied to all of your Git Repos.
+
+```bash
+# Set default core.autocrlf to false in Windows
+git config --global core.autocrlf false
+
+# Set core.eol to LF in Windows
+git config --global core.eol lf
+```
+
+You can normalize the files in your working directory with the following commands.
+
+```bash
+# Normalize local line endings
+git ls-files -z | xargs -0 rm
+git checkout .
+```
+
 ### Application or Tests Don't Work Due To Missing Dependencies
 
 * Re-run `npm install` to verify that your dependencies are up to date.
