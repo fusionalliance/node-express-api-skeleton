@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 
-const logFunctionFactory = require('../../../services/logFunctionFactory');
+const logFunctionFactory = require('../../../src/services/logFunctionFactory');
 
 chai.should();
 
