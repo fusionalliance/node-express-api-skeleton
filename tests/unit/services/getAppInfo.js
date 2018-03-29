@@ -1,4 +1,8 @@
-const chai = require('chai');
+'use strict';
+
+const {
+  chai, describe, it,
+} = require('chai');
 
 const getAppInfo = require('../../../src/services/getAppInfo');
 
@@ -8,7 +12,7 @@ chai.should();
 
 describe('getAppInfo', () => {
   it('responds with correct app information', () => {
-    return getAppInfo()
+    getAppInfo()
       .then((response) => {
         response.title.should.equal(pkgJSON.name);
         response.should.have.property('environment');

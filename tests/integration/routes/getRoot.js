@@ -1,5 +1,9 @@
-const app = require('../../../app');
-const chai = require('chai');
+'use strict';
+
+const app = require('../../../src/app');
+const {
+  chai, describe, it,
+} = require('chai');
 const chaiHttp = require('chai-http');
 
 const pkgJSON = require('../../../package.json');
@@ -9,12 +13,12 @@ chai.should();
 
 describe('api base route (/)', () => {
   it('responds with correct response', () => {
-    return chai
+    chai
       .request(app)
       .get('/api/')
       .set('Accept', 'application/json')
       .then((res) => {
-        const body = res.body;
+        const { body } = res;
         res.should.have.status(200);
         body.title.should.equal(pkgJSON.name);
         body.should.have.property('environment');
