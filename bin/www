@@ -13,6 +13,8 @@ function initialize() {
   let port = null;
   let server = null;
 
+  require('dotenv').config();
+
   // function configureRuntimeEnvironment() {
   //   /* eslint-disable global-require */
   //   const environment = process.env.NODE_ENV || 'development';
@@ -33,11 +35,11 @@ function initialize() {
     const debug = require('debug');
     debug.enable(config.debug);
   
-    return require('../services/logFunctionFactory');
+    return require('../src/services/logFunctionFactory');
   }
   
   function initializeApp() {
-    return require('../app');
+    return require('../src/app');
   }
   
   function normalizePort(val) {
@@ -105,7 +107,7 @@ function initialize() {
     server.on('listening', onListening);
   }
 
-  config = configureRuntimeEnvironment();
+  config = require('dotenv').config();
   logFunctionFactory = getLogFunctionFactory(config);
   app = initializeApp();
   port = setPort(app, config);

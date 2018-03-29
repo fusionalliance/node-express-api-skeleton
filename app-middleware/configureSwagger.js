@@ -2,7 +2,7 @@ const swaggerOptions = require('../swagger.json');
 const swaggerUI = require('swagger-ui-express');
 
 const pkgJSON = require('../package.json');
-const routeDocs = require('../routes/routeDocs.json');
+const routeDocs = require('../src/routes/routeDocs.json');
 
 function configure(app) {
   swaggerOptions.info.version = pkgJSON.version;

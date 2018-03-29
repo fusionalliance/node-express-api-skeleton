@@ -1,4 +1,4 @@
-const routes = require('../routes');
+const routes = require('../src/routes');
 
 function unmatchedRouteHandler(request, response, next) {
   const err = new Error('Not Found');

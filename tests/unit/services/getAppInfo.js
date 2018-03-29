@@ -2,7 +2,7 @@ const chai = require('chai');
 
 const getAppInfo = require('../../../services/getAppInfo');
 
-const pkgJSON = require('../../../package.json');
+const pkgJSON = require('../../package.json');
 
 chai.should();
 

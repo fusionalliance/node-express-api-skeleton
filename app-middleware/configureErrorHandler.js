@@ -1,5 +1,5 @@
-const errorTypes = require('../models/errorTypes');
-const logFunctionFactory = require('../services/logFunctionFactory');
+const errorTypes = require('../src/models/errorTypes');
+const logFunctionFactory = require('../src/services/logFunctionFactory');
 
 const writeError = logFunctionFactory.getErrorLogger('errorHandler');
 
