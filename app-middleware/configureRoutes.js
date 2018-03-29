@@ -1,3 +1,5 @@
+'use strict';
+
 const routes = require('../src/routes');
 
 function unmatchedRouteHandler(request, response, next) {

@@ -1,3 +1,5 @@
+'use strict';
+
 const swaggerOptions = require('../swagger.json');
 const swaggerUI = require('swagger-ui-express');
 

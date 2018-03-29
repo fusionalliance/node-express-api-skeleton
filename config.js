@@ -1,3 +1,5 @@
+'use strict';
+
 const config = {
   appName: process.env.APP_NAME,
   debug: process.env.DEBUG,

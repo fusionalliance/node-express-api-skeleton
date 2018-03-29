@@ -1,3 +1,5 @@
+'use strict';
+
 function configure(app) {
   /* eslint-disable global-require */
 

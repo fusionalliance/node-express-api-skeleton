@@ -1,4 +1,8 @@
-const chai = require('chai');
+'use strict';
+
+const {
+  chai, describe, it, beforeEach, afterEach,
+} = require('chai');
 const sinon = require('sinon');
 
 const logFunctionFactory = require('../../../src/services/logFunctionFactory');
