@@ -13,6 +13,7 @@ function initialize() {
   let port = null;
   let server = null;
 
+  
   require('dotenv').config();
 
   // function configureRuntimeEnvironment() {
@@ -107,7 +108,7 @@ function initialize() {
     server.on('listening', onListening);
   }
 
-  config = require('dotenv').config();
+  config = require('../config');
   logFunctionFactory = getLogFunctionFactory(config);
   app = initializeApp();
   port = setPort(app, config);

@@ -5,6 +5,3 @@ const config = {
 };
 
 module.exports = config;
-
-
-TODO: Replace this file with the 12 factor config lib.
