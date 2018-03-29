@@ -121,8 +121,7 @@ function initialize() {
 }
 
 function run(initializationInfo) {
-  const server = initializationInfo.server;
-  const port = initializationInfo.port;
+  const { server, port } = initializationInfo;
   server.listen(port);
 }
 
