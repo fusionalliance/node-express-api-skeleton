@@ -7,9 +7,9 @@
   "readmeFilename": "README.md",
   "author": "FusionAlliance",
   "scripts": {
-    "fixlint": "eslint --fix  \"*.js\" \"./**/*.js\"", // Use "eslint ." instead, and then use an ignore file to ignore what u don't want to lint. This supports globbing across OSs...
-    "lint": "eslint \"*.js\" \"./**/*.js\"",           // ditto
-    "devstart": "nodemon ./bin/www",
+    "fixlint": "eslint --fix  \"*.js\" \"./**/*.js\"",
+    "lint": "eslint \"*.js\" \"./**/*.js\"",
+    "develop": "dotenv test/.env nodemon ./bin/www",
     "start": "node ./bin/www",
     "integration-test": "mocha \"tests/integration/**/*.js\" ",
     "unit-test": "mocha \"tests/unit/**/*.js\" ",
@@ -20,16 +20,16 @@
     "compression": "^1.6.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.6.7",
-    "dotenv": "^4.0.0", use env-cmd??? Maybe/probably not.
+    "dotenv": "^5.0.1",
     "express": "~4.15.3",
     "swagger-ui-express": "^2.0.15"
   },
   "devDependencies": {
     "chai": "^4.1.0",
     "chai-http": "^3.0.0",
-    "eslint": "^3.11.1",
-    "eslint-config-airbnb-base": "^12.0.0",
-    "eslint-plugin-import": "^1.16.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
     "mocha": "^3.4.2",
     "nodemon": "^1.15.1",
     "sinon": "^4.4.2"
