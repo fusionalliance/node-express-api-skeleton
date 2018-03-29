@@ -9,7 +9,7 @@
   "scripts": {
     "fixlint": "eslint --fix  \"*.js\" \"./**/*.js\"",
     "lint": "eslint \"*.js\" \"./**/*.js\"",
-    "develop": "dotenv test/.env nodemon ./bin/www",
+    "develop": "nodemon ./bin/www",
     "start": "node ./bin/www",
     "integration-test": "mocha \"tests/integration/**/*.js\" ",
     "unit-test": "mocha \"tests/unit/**/*.js\" ",
