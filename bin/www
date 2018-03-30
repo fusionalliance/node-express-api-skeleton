@@ -4,6 +4,8 @@
 // Generator (https://expressjs.com/en/starter/generator.html), and then modularized into functions
 // for greater clarity.
 
+'use strict';
+
 const express = require('express')();
 
 function initialize() {
@@ -13,7 +15,6 @@ function initialize() {
   let port = null;
   let server = null;
 
-  
   require('dotenv').config();
 
   // function configureRuntimeEnvironment() {
@@ -28,48 +29,48 @@ function initialize() {
   //     console.error('Please set your NODE_ENV to either `development` or `production`');
   //   }
   //   /* eslint-enable global-require */
-  
+
   //   return require('../config');
   // }
-  
+
   function getLogFunctionFactory(config) {
     const debug = require('debug');
     debug.enable(config.debug);
-  
+
     return require('../src/services/logFunctionFactory');
   }
-  
+
   function initializeApp() {
     return require('../src/app');
   }
-  
+
   function normalizePort(val) {
     const port = parseInt(val, 10);
-  
+
     const isNamedPipe = isNaN(port);
     if (isNamedPipe) {
       return val;
     }
-  
+
     const isPort = (port >= 0);
     if (isPort) {
       return port;
     }
-  
+
     return false;
   }
-  
+
   function setPort(app, config) {
     const port = normalizePort(config.desiredPort);
     app.set('port', port);
     return port;
   }
-  
+
   function createServer(app) {
     const http = require('http');
     return http.createServer(app);  // app.listen() is a convenience method. use it instead of all this??? Action Item: Simplify this file.
   }
-  
+
   function onError(error) {
     if (error.syscall !== 'listen') {
       throw error;
@@ -78,31 +79,31 @@ function initialize() {
     const bind = typeof port === 'string'
       ? `Pipe ${port}`
       : `Port ${port}`;
-  
+
     switch (error.code) {
-    case 'EACCES':
-      console.error(`${bind} requires elevated privileges`);
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(`${bind} is already in use`);
-      process.exit(1);
-      break;
-    default:
-      throw error;
+      case 'EACCES':
+        console.error(`${bind} requires elevated privileges`);
+        process.exit(1);
+        break;
+      case 'EADDRINUSE':
+        console.error(`${bind} is already in use`);
+        process.exit(1);
+        break;
+      default:
+        throw error;
     }
   }
-  
+
   function onListening() {
     const componentName = 'server';
     const writeInfo = logFunctionFactory.getInfoLogger(componentName);
     const addr = server.address();
     const bind = typeof addr === 'string'
-    ? `pipe ${addr}`
-    : `port ${addr.port}`;
+      ? `pipe ${addr}`
+      : `port ${addr.port}`;
     writeInfo(`Listening on ${bind}`);
   }
-  
+
   function configureEvents(server) {
     server.on('error', onError);
     server.on('listening', onListening);
@@ -116,7 +117,7 @@ function initialize() {
   configureEvents(server);
   return {
     server,
-    port
+    port,
   };
 }
 
