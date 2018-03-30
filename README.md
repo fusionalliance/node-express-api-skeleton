@@ -69,13 +69,13 @@ Follow these instructions to run the app in debug mode, with auto-restart functi
 macOS:
 
 ```bash
-DEBUG=fusion-node-express-api-skeleton:* npm run devstart
+DEBUG=fusion-node-express-api-skeleton:* npm run develop
 ```
 
 Windows:
 
 ```bash
-SET DEBUG=fusion-node-express-api-skeleton:* & npm run devstart
+SET DEBUG=fusion-node-express-api-skeleton:* & npm run develop
 ```
 
 ## Troubleshooting
@@ -148,6 +148,7 @@ Functions that provide support to other parts of the application, esp. to the ro
 Automated tests.
 
   > Recommendation: *Keep integration and unit tests separate.*
+  > Recommendation: *Keep tests separate from source files.*
 
 ## Versioning
 
