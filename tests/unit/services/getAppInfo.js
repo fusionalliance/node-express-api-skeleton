@@ -1,9 +1,7 @@
 'use strict';
 
 const chai = require('chai');
-
 const getAppInfo = require('../../../src/services/getAppInfo');
-
 const pkgJSON = require('../../../package.json');
 
 chai.should();
