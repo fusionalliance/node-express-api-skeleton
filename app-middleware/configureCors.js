@@ -2,12 +2,20 @@
 
 const cors = require('cors');
 
+function parseOrigins(allowedOrigins) {
+  let origins = allowedOrigins;
+  if (allowedOrigins.indexOf(',') > -1) {
+    origins = allowedOrigins.split(',');
+  }
+  return origins;
+}
+
 function configure(app) {
+  const config = require('../src/config');
+  const allowedOrigins = parseOrigins(config.allowedOrigins);
+
   app.use(cors({
-    origin: [
-      'http://127.0.0.1:3000',
-      'http://localhost:3000',
-    ],
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'hostsuffix', 'Content-Disposition'],
     preflightContinue: true,
