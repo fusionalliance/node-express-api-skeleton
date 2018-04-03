@@ -7,6 +7,7 @@ function configure(app) {
   require('./configureCompression')(app);
   require('./configureSwagger')(app);
   require('./configureRoutes')(app);
+  require('./configureCors')(app);
 
   // Make sure configureErrorHandler is LAST!!!
   require('./configureErrorHandler')(app);
