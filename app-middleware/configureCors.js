@@ -1,6 +1,7 @@
 'use strict';
 
 const cors = require('cors');
+const config = require('../src/config');
 
 function parseOrigins(allowedOrigins) {
   let origins = allowedOrigins;
@@ -11,9 +12,7 @@ function parseOrigins(allowedOrigins) {
 }
 
 function configure(app) {
-  const config = require('../src/config');
   const allowedOrigins = parseOrigins(config.allowedOrigins);
-
   app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
