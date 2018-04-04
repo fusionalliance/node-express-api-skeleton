@@ -113,6 +113,18 @@ Sometimes you just need to completely reset your development environment. Execut
 git clean -dxf
 ```
 
+## Options
+
+### Environment Variables
+| Environment Variable | Default Value                      | Description                                 |
+|----------------------|------------------------------------|---------------------------------------------|
+| ALLOWED_HEADERS      | * (all headers)                    | The header(s) allowed on requests           |
+| ALLOWED_ORIGINS      | * (all origins)                    | The origin(s) allowed to access the API     |
+| APP_NAME             | fusion-node-express-api-skeleton   |                                             |
+| DEBUG                | fusion-node-express-api-skeleton:* |                                             |
+| NODE_ENV             | development                        | The environment (development or production) |
+| PORT                 | 3000                               | The port the API will listen on             |
+
 ## Project Folder Structure
 
 For the benefit of those building and/or maintaining the application, here's an overview of the folder structure.
