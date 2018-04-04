@@ -11,12 +11,21 @@ function parseOrigins(allowedOrigins) {
   return origins;
 }
 
+function parseHeaders(allowedHeaders) {
+  let headers = allowedHeaders;
+  if (allowedHeaders.indexOf(',') > -1) {
+    headers = allowedHeaders.split(',');
+  }
+  return headers;
+}
+
 function configure(app) {
   const allowedOrigins = parseOrigins(config.allowedOrigins);
+  const headers = parseHeaders(config.allowedHeaders);
   app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'hostsuffix', 'Content-Disposition'],
+    allowedHeaders: headers,
     preflightContinue: true,
   }));
 }
