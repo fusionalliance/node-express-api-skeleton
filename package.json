@@ -23,6 +23,7 @@
     "dotenv": "^4.0.0",
     "express": "~4.15.3",
     "morgan": "~1.8.2",
+    "swagger-jsdoc": "^1.9.7",
     "swagger-ui-express": "^2.0.15"
   },
   "devDependencies": {
