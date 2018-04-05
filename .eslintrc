@@ -3,18 +3,7 @@
   "parserOptions": {
     "sourceType": "script"
   },
-  "env": {
-    "mocha": true
-  },
   "rules": {
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "functions": "never",
-        "objects": "always-multiline"
-      }
-    ],
     "strict": ["error", "global"]
   }
 }
