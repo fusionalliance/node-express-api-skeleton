@@ -11,8 +11,8 @@
     "lint": "eslint .",
     "develop": "nodemon ./bin/www",
     "start": "node ./bin/www",
-    "integration-test": "mocha \"tests/integration/**/*.js\" ",
-    "unit-test": "mocha \"tests/unit/**/*.js\" ",
+    "integration-test": "mocha --opts tests/integration.opts",
+    "unit-test": "mocha --opts tests/unit.opts",
     "test": "npm run unit-test && npm run integration-test"
   },
   "dependencies": {
