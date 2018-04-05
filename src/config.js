@@ -1,12 +1,39 @@
 'use strict';
 
-const config = {
-  allowedHeaders: process.env.ALLOWED_HEADERS || '*',
-  allowedOrigins: process.env.ALLOWED_ORIGINS || '*',
-  appName: process.env.APP_NAME,
-  debug: process.env.DEBUG,
-  desiredPort: process.env.PORT || '3000',
-  nodeEnv: process.env.NODE_ENV || 'development',
-};
+const cfg = require('12factor-config');
+
+const config = cfg({
+  allowedOrigins: {
+    env: 'ALLOWED_ORIGINS',
+    type: 'string',
+    default: '*',
+  },
+  allowedHeaders: {
+    env: 'ALLOWED_HEADERS',
+    type: 'string',
+    default: '*',
+  },
+  appName: {
+    env: 'APP_NAME',
+    type: 'string',
+    default: 'fusion-node-express-api-skeleton'
+  },
+  desiredPort: {
+    env: 'PORT',
+    type: 'integer',
+    default: '3000',
+  },
+  debug: {
+    env: 'DEBUG',
+    type: 'string',
+    default: 'fusion-node-express-api-skeleton:*',
+  },
+  nodeEnv: {
+    env: 'NODE_ENV',
+    type: 'enum',
+    values: ['development', 'test', 'stage', 'production'],
+    default: 'development',
+  },
+});
 
 module.exports = config;
