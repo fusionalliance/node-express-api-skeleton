@@ -31,7 +31,7 @@ const config = cfg({
   nodeEnv: {
     env: 'NODE_ENV',
     type: 'enum',
-    values: ['development', 'test', 'stage', 'production'],
+    values: ['development', 'production'],
     default: 'development',
   },
 });
