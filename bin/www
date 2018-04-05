@@ -9,7 +9,6 @@
 /* eslint-disable global-require */
 
 function initialize() {
-
   function getLogFunctionFactory(config) {
     const debug = require('debug');
     debug.enable(config.debug);

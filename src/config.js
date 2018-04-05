@@ -16,7 +16,7 @@ const config = cfg({
   appName: {
     env: 'APP_NAME',
     type: 'string',
-    default: 'fusion-node-express-api-skeleton'
+    default: 'fusion-node-express-api-skeleton',
   },
   desiredPort: {
     env: 'PORT',
