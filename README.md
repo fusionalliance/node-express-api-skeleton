@@ -92,14 +92,6 @@ git config --global core.autocrlf false
 git config --global core.eol lf
 ```
 
-You can normalize the files in your working directory with the following commands.
-
-```bash
-# Normalize local line endings
-git ls-files -z | xargs -0 rm
-git checkout .
-```
-
 ### Application or Tests Don't Work Due To Missing Dependencies
 
 * Re-run `npm install` to verify that your dependencies are up to date.
