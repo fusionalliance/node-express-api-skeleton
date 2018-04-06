@@ -5,7 +5,7 @@ const getAppInfo = require('../services/getAppInfo');
 
 const router = new express.Router();
 
-router.get('/about', async (request, response) => {
+router.get('/', async (request, response) => {
   const appInfo = await getAppInfo();
   response.status(200).json({
     title: appInfo.title,

@@ -1,17 +1,30 @@
 'use strict';
 
-const swaggerOptions = require('../swagger.json');
 const swaggerUI = require('swagger-ui-express');
-
+const swaggerJSDoc = require('swagger-jsdoc');
 const pkgJSON = require('../package.json');
-const routeDocs = require('../src/routes/routeDocs.json');
 
 function configure(app) {
-  swaggerOptions.info.version = pkgJSON.version;
-  swaggerOptions.info.title = pkgJSON.name;
-  swaggerOptions.info.description = pkgJSON.description;
-  swaggerOptions.paths = routeDocs;
-  app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerOptions));
+  const swaggerDefinition = {
+    info: {
+      title: pkgJSON.name,
+      version: pkgJSON.version,
+      description: pkgJSON.description,
+    },
+    basePath: '/api',
+  };
+
+  const swaggerOptions = {
+    swaggerDefinition,
+    apis: ['src/routes/**/index.js', 'src/routes/index.js'],
+  };
+
+  const swaggerSpec = swaggerJSDoc(swaggerOptions);
+  app.get('/swagger.json', (request, response) => {
+    response.json(swaggerSpec);
+  });
+
+  app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 }
 
 module.exports = configure;

@@ -12,7 +12,7 @@ chai.should();
 describe('api base route (/)', () => {
   it('responds with correct response', () => chai
     .request(app)
-    .get('/api/about')
+    .get('/api/')
     .set('Accept', 'application/json')
     .then((res) => {
       const { body } = res;
