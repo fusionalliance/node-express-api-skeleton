@@ -2,7 +2,7 @@
 
 const swaggerUI = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
-const pkgJSON = require('../package.json');
+const pkgJSON = require('../../package.json');
 
 function configure(app) {
   const swaggerDefinition = {

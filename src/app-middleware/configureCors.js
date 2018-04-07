@@ -1,7 +1,7 @@
 'use strict';
 
 const cors = require('cors');
-const config = require('../src/config');
+const config = require('../config');
 
 function parseValues(originalValues) {
   let parsedValues = originalValues;

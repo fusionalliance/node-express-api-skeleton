@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const middleware = require('../app-middleware');
+const middleware = require('./app-middleware');
 
 const app = express();
 

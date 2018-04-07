@@ -1,6 +1,6 @@
 'use strict';
 
-const routes = require('../src/routes');
+const routes = require('../routes');
 
 function unmatchedRouteHandler(request, response, next) {
   const err = new Error('Not Found');
