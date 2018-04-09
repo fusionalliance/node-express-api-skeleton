@@ -1,3 +1,5 @@
+'use strict';
+
 const errorTypes = require('../models/errorTypes');
 const logFunctionFactory = require('../services/logFunctionFactory');
 
@@ -11,16 +13,16 @@ function configure(app) {
       next(err);
     } else if (err.errorType === errorTypes.badRequest) {
       res
-          .status(400)
-          .json({ message: err.message });
+        .status(400)
+        .json({ message: err.message });
     } else if (err.errorType === errorTypes.notFound) {
       res
-          .status(404)
-          .json({ message: err.message });
+        .status(404)
+        .json({ message: err.message });
     } else if (err.errorType === errorTypes.loginFailed) {
       res
-          .status(401)
-          .json({ message: 'The username or password was invalid.' });
+        .status(401)
+        .json({ message: 'The username or password was invalid.' });
     } else {
       next(err);
     }

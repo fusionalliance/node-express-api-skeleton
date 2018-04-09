@@ -1,11 +1,13 @@
+'use strict';
+
 function configure(app) {
   /* eslint-disable global-require */
 
   require('./configureBodyParser')(app);
   require('./configureCompression')(app);
-  require('./configureLogger')(app);
   require('./configureSwagger')(app);
   require('./configureRoutes')(app);
+  require('./configureCors')(app);
 
   // Make sure configureErrorHandler is LAST!!!
   require('./configureErrorHandler')(app);

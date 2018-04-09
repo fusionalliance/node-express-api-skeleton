@@ -1,3 +1,5 @@
+'use strict';
+
 const compression = require('compression');
 
 function configure(app) {

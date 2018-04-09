@@ -1,6 +1,8 @@
+'use strict';
+
 const swaggerUI = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
-const pkgJSON = require('../package.json');
+const pkgJSON = require('../../package.json');
 
 function configure(app) {
   const swaggerDefinition = {
@@ -14,7 +16,7 @@ function configure(app) {
 
   const swaggerOptions = {
     swaggerDefinition,
-    apis: ['routes/**/index.js', 'routes/index.js'],
+    apis: ['src/routes/**/index.js', 'src/routes/index.js'],
   };
 
   const swaggerSpec = swaggerJSDoc(swaggerOptions);
