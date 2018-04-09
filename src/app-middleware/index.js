@@ -6,8 +6,10 @@ function configure(app) {
   require('./configureBodyParser')(app);
   require('./configureCompression')(app);
   require('./configureSwagger')(app);
-  require('./configureRoutes')(app);
   require('./configureCors')(app);
+
+  // Routes should immediately precede Error Handlers
+  require('./configureRoutes')(app);
 
   // Make sure configureErrorHandler is LAST!!!
   require('./configureErrorHandler')(app);
