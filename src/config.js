@@ -6,12 +6,10 @@ const config = cfg({
   allowedOrigins: {
     env: 'ALLOWED_ORIGINS',
     type: 'string',
-    required: true,
   },
   allowedHeaders: {
     env: 'ALLOWED_HEADERS',
     type: 'string',
-    required: true,
   },
   appName: {
     env: 'APP_NAME',
@@ -21,16 +19,12 @@ const config = cfg({
   desiredPort: {
     env: 'PORT',
     type: 'integer',
+    default: '3000',
     required: true,
   },
   debug: {
     env: 'DEBUG',
     type: 'string',
-  },
-  nodeEnv: {
-    env: 'NODE_ENV',
-    type: 'enum',
-    values: ['development', 'production'],
   },
 });
 
