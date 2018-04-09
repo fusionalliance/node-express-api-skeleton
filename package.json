@@ -9,8 +9,8 @@
   "scripts": {
     "fixlint": "eslint . --fix",
     "lint": "eslint .",
-    "develop": "nodemon --exec \"node -r dotenv/config\" ./bin/www",
-    "start": "node ./bin/www",
+    "develop": "nodemon --exec \"node -r dotenv/config\" ./bin/www.js",
+    "start": "node ./bin/www.js",
     "integration-test": "mocha --opts tests/integration.opts",
     "unit-test": "mocha --opts tests/unit.opts",
     "test": "npm run unit-test && npm run integration-test"
