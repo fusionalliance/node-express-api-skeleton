@@ -26,6 +26,11 @@ const config = cfg({
     env: 'DEBUG',
     type: 'string',
   },
+  topSecret: {
+    env: 'TOP_SECRET',
+    type: 'string',
+    required: true,
+  },
 });
 
 module.exports = config;
