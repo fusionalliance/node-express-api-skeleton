@@ -8,7 +8,7 @@ module.exports = [
   require('./swaggerFactory'),
   require('./corsFactory'),
 
-  // Configure routes after other middleware
+  // Routes should immediately precede Error Handlers
   require('./routesFactory'),
   require('./unmatchedRouteHandlerFactory'),
 
