@@ -34,6 +34,12 @@ const config = cfg({
     env: 'HEROKU_SLUG_DESCRIPTION',
     type: 'string',
   },
+  nodeEnv: {
+    env: 'NODE_ENV',
+    type: 'enum',
+    values: ['development', 'production'],
+    default: 'production',
+  },
 });
 
 module.exports = config;
