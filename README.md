@@ -58,7 +58,7 @@ npm run unit-test
 ### Run the app
 
 ```bash
-npm start
+npm run develop
 ```
 
 Then browse to `/api-docs` to view all of the paths supported by the API.
