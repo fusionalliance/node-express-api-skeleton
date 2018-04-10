@@ -22,7 +22,7 @@ const factory = {
   },
   getDebugLogger: (name) => {
     const logger = debug(`${config.appName}:${name}`);
-    logger.log = console.debug.bind(console);
+    logger.log = console.log.bind(console);
     return logger;
   },
 };

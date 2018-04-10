@@ -46,10 +46,10 @@ describe('logFunctionFactory', () => {
 
   describe('getDebugLogger', () => {
     beforeEach(() => {
-      consoleStub = sinon.stub(console, 'debug');
+      consoleStub = sinon.stub(console, 'log');
     });
 
-    it('returns function that writes to console.debug', () => {
+    it('returns function that writes to console.log', () => {
       logFunctionFactory.getDebugLogger(namespace).log(message);
       consoleStub.getCall(0).args.should.deep.equal([message]);
     });
