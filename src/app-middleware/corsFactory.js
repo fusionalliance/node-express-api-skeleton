@@ -4,19 +4,19 @@ const cors = require('cors');
 
 function parseValues(originalValues) {
   let parsedValues = originalValues;
-  if (originalValues.indexOf(',') > -1) {
+  if (originalValues.includes(',')) {
     parsedValues = originalValues.split(',');
   }
   return parsedValues;
 }
 
 module.exports = function corsFactory(config) {
-  const allowedOrigins = parseValues(config.allowedOrigins);
-  const headers = parseValues(config.allowedHeaders);
+  const origin = parseValues(config.allowedOrigins);
+  const allowedHeaders = parseValues(config.allowedHeaders);
   return cors({
-    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: headers,
     preflightContinue: true,
+    allowedHeaders,
+    origin,
   });
 };
