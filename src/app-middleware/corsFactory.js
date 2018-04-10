@@ -3,9 +3,6 @@
 const cors = require('cors');
 
 function parseValues(originalValues) {
-  if (originalValues === undefined) {
-    return '*';
-  }
   let parsedValues = originalValues;
   if (originalValues.indexOf(',') > -1) {
     parsedValues = originalValues.split(',');
