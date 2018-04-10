@@ -6,10 +6,12 @@ const config = cfg({
   allowedHeaders: {
     env: 'ALLOWED_HEADERS',
     type: 'string',
+    required: true,
   },
   allowedOrigins: {
     env: 'ALLOWED_ORIGINS',
     type: 'string',
+    required: true,
   },
   appName: {
     env: 'APP_NAME',
