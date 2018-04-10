@@ -19,7 +19,6 @@ const config = cfg({
   desiredPort: {
     env: 'PORT',
     type: 'integer',
-    default: '3000',
     required: true,
   },
   debug: {
