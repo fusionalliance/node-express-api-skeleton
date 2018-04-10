@@ -1,5 +1,7 @@
 'use strict';
 
+const { Router } = require('express');
+
 function unmatchedRouteHandler(request, response, next) {
   const err = new Error('Not Found');
   err.status = 404;
@@ -7,5 +9,6 @@ function unmatchedRouteHandler(request, response, next) {
 }
 
 module.exports = function unmatchedRouteHandlerFactory() {
-  return unmatchedRouteHandler();
+  return Router()
+    .use(unmatchedRouteHandler);
 };
