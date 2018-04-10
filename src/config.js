@@ -27,6 +27,12 @@ const config = cfg({
     type: 'integer',
     required: true,
   },
+  nodeEnv: {
+    env: 'NODE_ENV',
+    type: 'enum',
+    values: ['development', 'production'],
+    default: 'production',
+  },
 });
 
 module.exports = config;
