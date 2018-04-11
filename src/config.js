@@ -6,25 +6,33 @@ const config = cfg({
   allowedOrigins: {
     env: 'ALLOWED_ORIGINS',
     type: 'string',
+    default: '*',
   },
   allowedHeaders: {
     env: 'ALLOWED_HEADERS',
     type: 'string',
+    default: '*',
   },
   appName: {
     env: 'APP_NAME',
     type: 'string',
-    required: true,
+    default: 'fusion-node-express-api-skeleton',
   },
   desiredPort: {
     env: 'PORT',
     type: 'integer',
     default: '3000',
-    required: true,
   },
   debug: {
     env: 'DEBUG',
     type: 'string',
+    default: 'fusion-node-express-api-skeleton:*',
+  },
+  nodeEnv: {
+    env: 'NODE_ENV',
+    type: 'enum',
+    values: ['development', 'production'],
+    default: 'development',
   },
   herokuSlugCommit: {
     env: 'HEROKU_SLUG_COMMIT',
