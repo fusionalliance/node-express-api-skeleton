@@ -21,7 +21,6 @@ describe('api base route (/)', () => {
       body.should.have.property('environment');
       body.version.should.equal(pkgJSON.version);
       body.should.have.property('commit');
-      body.should.have.property('build');
     })
     .catch((err) => {
       throw err;
