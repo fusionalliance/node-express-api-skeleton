@@ -34,6 +34,10 @@ const config = cfg({
     values: ['development', 'production'],
     default: 'development',
   },
+  herokuSlugCommit: {
+    env: 'HEROKU_SLUG_COMMIT',
+    type: 'string',
+  },
 });
 
 module.exports = config;
