@@ -16,11 +16,12 @@ const config = cfg({
   appName: {
     env: 'APP_NAME',
     type: 'string',
-    default: 'fusion-node-express-api-skeleton',
+    required: true,
   },
   debug: {
     env: 'DEBUG',
     type: 'string',
+    required: true,
   },
   desiredPort: {
     env: 'PORT',
