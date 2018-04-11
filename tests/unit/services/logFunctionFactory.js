@@ -2,9 +2,13 @@
 
 const chai = require('chai');
 const sinon = require('sinon');
-const proxyquire = require('proxyquire');
+const proxyquire = require('proxyquire').noCallThru();
 
-const logFunctionFactory = proxyquire('../../../src/services/logFunctionFactory', { config: { appName: 'My App Name' } });
+const logFunctionFactory =
+  proxyquire(
+    '../../../src/services/logFunctionFactory',
+    { '../../src/config': { appName: 'AppName' } },
+  );
 
 chai.should();
 
