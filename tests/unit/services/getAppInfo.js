@@ -7,20 +7,17 @@ const pkgJSON = require('../../../package.json');
 chai.should();
 
 describe('getAppInfo', () => {
-  const config = { herokuSlugCommit: '1232' };
+  const commit = 'abc123';
+  const config = { herokuSlugCommit: commit };
 
   it('responds with correct app information', () => getAppInfo(config)
     .then((response) => {
       response.title.should.equal(pkgJSON.name);
       response.should.have.property('environment');
       response.version.should.equal(pkgJSON.version);
-      response.should.have.property('commit');
+      response.commit.should.equal(commit);
     })
     .catch((err) => {
       throw err;
     }));
-
-  after(() => {
-    delete process.env;
-  });
 });
