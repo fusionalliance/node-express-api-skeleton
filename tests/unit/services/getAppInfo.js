@@ -7,7 +7,9 @@ const pkgJSON = require('../../../package.json');
 chai.should();
 
 describe('getAppInfo', () => {
-  it('responds with correct app information', () => getAppInfo()
+  const config = { herokuSlugCommit: '1232' };
+
+  it('responds with correct app information', () => getAppInfo(config)
     .then((response) => {
       response.title.should.equal(pkgJSON.name);
       response.should.have.property('environment');
@@ -17,4 +19,8 @@ describe('getAppInfo', () => {
     .catch((err) => {
       throw err;
     }));
+
+  after(() => {
+    delete process.env;
+  });
 });

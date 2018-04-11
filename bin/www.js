@@ -2,6 +2,7 @@
 
 'use strict';
 
+const logFactory = require('../src/services/logFunctionFactory');
 /* eslint-disable global-require */
 
 function initialize() {
@@ -9,7 +10,7 @@ function initialize() {
     const debug = require('debug');
     debug.enable(config.debug);
 
-    return require('../src/services/logFunctionFactory');
+    return logFactory(config);
   }
 
   function monitorAndLog(server, port, config) {
@@ -21,8 +22,8 @@ function initialize() {
     logStart(port, config.nodeEnv, logFunctionFactory);
   }
 
-  const config = require('../src/config');
   const app = require('../src/app');
+  const config = require('../src/config');
   const port = parseInt(config.desiredPort, 10);
   const server = app.listen(port);
 

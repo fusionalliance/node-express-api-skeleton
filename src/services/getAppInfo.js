@@ -1,14 +1,13 @@
 'use strict';
 
 const express = require('express');
-const config = require('../config');
 const pkgJSON = require('../../package.json');
 const gitData = require('../services/getGitData');
 
 const app = express();
 const env = app.get('env');
 
-async function getAppInfo() {
+async function getAppInfo(config) {
   const gitInfo = await gitData();
   return new Promise((resolve) => {
     resolve({

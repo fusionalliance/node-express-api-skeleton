@@ -10,6 +10,7 @@ describe('logFunctionFactory', () => {
   const namespace = 'MyTestNamespace';
   const message = 'my message';
   let consoleStub;
+  const config = { appName: 'Test' };
 
   describe('getErrorLogger', () => {
     beforeEach(() => {
@@ -17,7 +18,7 @@ describe('logFunctionFactory', () => {
     });
 
     it('returns function that writes to console.error', () => {
-      logFunctionFactory.getErrorLogger(namespace).log(message);
+      logFunctionFactory(config).getErrorLogger(namespace).log(message);
       consoleStub.getCall(0).args.should.deep.equal([message]);
     });
   });
@@ -28,7 +29,7 @@ describe('logFunctionFactory', () => {
     });
 
     it('returns function that writes to console.warn', () => {
-      logFunctionFactory.getWarnLogger(namespace).log(message);
+      logFunctionFactory(config).getWarnLogger(namespace).log(message);
       consoleStub.getCall(0).args.should.deep.equal([message]);
     });
   });
@@ -39,7 +40,7 @@ describe('logFunctionFactory', () => {
     });
 
     it('returns function that writes to console.info', () => {
-      logFunctionFactory.getInfoLogger(namespace).log(message);
+      logFunctionFactory(config).getInfoLogger(namespace).log(message);
       consoleStub.getCall(0).args.should.deep.equal([message]);
     });
   });
@@ -50,7 +51,7 @@ describe('logFunctionFactory', () => {
     });
 
     it('returns function that writes to console.log', () => {
-      logFunctionFactory.getDebugLogger(namespace).log(message);
+      logFunctionFactory(config).getDebugLogger(namespace).log(message);
       consoleStub.getCall(0).args.should.deep.equal([message]);
     });
   });

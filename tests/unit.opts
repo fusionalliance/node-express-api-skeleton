@@ -1,3 +1,1 @@
---require dotenv/config
---require ./src/config
 tests/unit/**/*.js
