@@ -16,7 +16,7 @@ const config = cfg({
   appName: {
     env: 'APP_NAME',
     type: 'string',
-    required: true,
+    default: 'fusion-node-express-api-skeleton',
   },
   debug: {
     env: 'DEBUG',
@@ -32,6 +32,10 @@ const config = cfg({
     type: 'enum',
     values: ['development', 'production'],
     default: 'production',
+  },
+  herokuSlugCommit: {
+    env: 'HEROKU_SLUG_COMMIT',
+    type: 'string',
   },
 });
 

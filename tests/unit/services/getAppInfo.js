@@ -13,7 +13,6 @@ describe('getAppInfo', () => {
       response.should.have.property('environment');
       response.version.should.equal(pkgJSON.version);
       response.should.have.property('commit');
-      response.should.have.property('build');
     })
     .catch((err) => {
       throw err;
