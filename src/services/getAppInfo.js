@@ -16,7 +16,6 @@ async function getAppInfo() {
       environment: env,
       version: pkgJSON.version,
       commit: config.herokuSlugCommit || gitInfo.long,
-      build: config.herokuSlugDescription || gitInfo.short,
     });
   });
 }

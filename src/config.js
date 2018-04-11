@@ -30,10 +30,6 @@ const config = cfg({
     env: 'HEROKU_SLUG_COMMIT',
     type: 'string',
   },
-  herokuSlugDescription: {
-    env: 'HEROKU_SLUG_DESCRIPTION',
-    type: 'string',
-  },
 });
 
 module.exports = config;
