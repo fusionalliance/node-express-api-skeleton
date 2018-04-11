@@ -6,12 +6,10 @@ const config = cfg({
   allowedHeaders: {
     env: 'ALLOWED_HEADERS',
     type: 'string',
-    required: true,
   },
   allowedOrigins: {
     env: 'ALLOWED_ORIGINS',
     type: 'string',
-    required: true,
   },
   appName: {
     env: 'APP_NAME',
@@ -28,15 +26,19 @@ const config = cfg({
     type: 'integer',
     required: true,
   },
+  enableCORS: {
+    env: 'ENABLE_CORS',
+    type: 'boolean',
+  },
+  herokuSlugCommit: {
+    env: 'HEROKU_SLUG_COMMIT',
+    type: 'string',
+  },
   nodeEnv: {
     env: 'NODE_ENV',
     type: 'enum',
     values: ['development', 'production'],
     default: 'production',
-  },
-  herokuSlugCommit: {
-    env: 'HEROKU_SLUG_COMMIT',
-    type: 'string',
   },
 });
 

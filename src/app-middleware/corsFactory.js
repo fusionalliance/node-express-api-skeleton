@@ -11,12 +11,16 @@ function parseValues(originalValues) {
 }
 
 module.exports = function corsFactory(config) {
-  const origin = parseValues(config.allowedOrigins);
-  const allowedHeaders = parseValues(config.allowedHeaders);
-  return cors({
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    preflightContinue: true,
-    allowedHeaders,
-    origin,
-  });
+  let corsOpts = {};
+  if (config.enableCORS) {
+    const origin = parseValues(config.allowedOrigins);
+    const allowedHeaders = parseValues(config.allowedHeaders);
+    corsOpts = ({
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      preflightContinue: true,
+      allowedHeaders,
+      origin,
+    });
+  }
+  return cors(corsOpts);
 };
