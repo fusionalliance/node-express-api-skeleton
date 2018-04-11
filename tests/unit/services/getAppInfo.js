@@ -8,9 +8,9 @@ chai.should();
 
 describe('getAppInfo', () => {
   const commit = 'abc123';
-  const config = { herokuSlugCommit: commit };
+  process.env.HEROKU_SLUG_COMMIT = commit;
 
-  it('responds with correct app information', () => getAppInfo(config)
+  it('responds with correct app information', () => getAppInfo()
     .then((response) => {
       response.title.should.equal(pkgJSON.name);
       response.should.have.property('environment');

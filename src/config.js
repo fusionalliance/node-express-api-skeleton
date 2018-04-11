@@ -30,10 +30,6 @@ const config = cfg({
     env: 'ENABLE_CORS',
     type: 'boolean',
   },
-  herokuSlugCommit: {
-    env: 'HEROKU_SLUG_COMMIT',
-    type: 'string',
-  },
   nodeEnv: {
     env: 'NODE_ENV',
     type: 'enum',

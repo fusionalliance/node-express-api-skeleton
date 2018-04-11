@@ -2,12 +2,11 @@
 
 const express = require('express');
 const getAppInfo = require('../services/getAppInfo');
-const config = require('../config');
 
 const router = new express.Router();
 
 router.get('/', async (request, response) => {
-  const appInfo = await getAppInfo(config);
+  const appInfo = await getAppInfo();
   response.status(200).json({
     title: appInfo.title,
     environment: appInfo.environment,

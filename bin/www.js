@@ -2,15 +2,13 @@
 
 'use strict';
 
-const logFunctionFactory = require('../src/services/logFunctionFactory');
 /* eslint-disable global-require */
-
 function initialize() {
   function getLogFunctionFactory(config) {
     const debug = require('debug');
     debug.enable(config.debug);
 
-    return logFunctionFactory(config);
+    return require('../src/services/logFunctionFactory');
   }
 
   function monitorAndLog(server, port, config) {
