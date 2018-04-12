@@ -3,40 +3,38 @@
 const cfg = require('12factor-config');
 
 const config = cfg({
-  allowedOrigins: {
-    env: 'ALLOWED_ORIGINS',
-    type: 'string',
-    default: '*',
-  },
   allowedHeaders: {
     env: 'ALLOWED_HEADERS',
     type: 'string',
-    default: '*',
+  },
+  allowedOrigins: {
+    env: 'ALLOWED_ORIGINS',
+    type: 'string',
   },
   appName: {
     env: 'APP_NAME',
     type: 'string',
-    default: 'fusion-node-express-api-skeleton',
-  },
-  desiredPort: {
-    env: 'PORT',
-    type: 'integer',
-    default: '3000',
+    required: true,
   },
   debug: {
     env: 'DEBUG',
     type: 'string',
-    default: 'fusion-node-express-api-skeleton:*',
+    required: true,
+  },
+  desiredPort: {
+    env: 'PORT',
+    type: 'integer',
+    required: true,
+  },
+  enableCORS: {
+    env: 'ENABLE_CORS',
+    type: 'boolean',
   },
   nodeEnv: {
     env: 'NODE_ENV',
     type: 'enum',
     values: ['development', 'production'],
-    default: 'development',
-  },
-  herokuSlugCommit: {
-    env: 'HEROKU_SLUG_COMMIT',
-    type: 'string',
+    default: 'production',
   },
 });
 

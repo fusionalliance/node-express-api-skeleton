@@ -18,9 +18,6 @@ const router = new express.Router();
  *      version:
  *        type: string
  *        description: The version of the API
- *      build:
- *        type: string
- *        description: The build number
  *      commit:
  *        type: string
  *        description: The commit hash

@@ -1,7 +1,7 @@
 'use strict';
 
-const config = require('../config');
 const debug = require('debug');
+const config = require('../../src/config');
 
 /* eslint-disable no-console */
 const factory = {
@@ -26,5 +26,6 @@ const factory = {
     return logger;
   },
 };
+
 
 module.exports = factory;

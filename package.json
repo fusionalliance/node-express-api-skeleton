@@ -36,6 +36,7 @@
     "eslint-plugin-import": "^2.7.0",
     "mocha": "^3.4.2",
     "nodemon": "^1.15.1",
+    "proxyquire": "^2.0.1",
     "sinon": "^4.4.2"
   }
 }

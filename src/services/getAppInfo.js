@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const config = require('../config');
 const pkgJSON = require('../../package.json');
 const gitData = require('../services/getGitData');
 
@@ -15,7 +14,7 @@ async function getAppInfo() {
       title: pkgJSON.name,
       environment: env,
       version: pkgJSON.version,
-      commit: config.herokuSlugCommit || gitInfo.long,
+      commit: process.env.HEROKU_SLUG_COMMIT || gitInfo.long,
     });
   });
 }

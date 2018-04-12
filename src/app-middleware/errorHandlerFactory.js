@@ -4,11 +4,9 @@ const { Router } = require('express');
 const errorTypes = require('../models/errorTypes');
 const logFunctionFactory = require('../services/logFunctionFactory');
 
-const writeError = logFunctionFactory.getErrorLogger('errorHandler');
-
 module.exports = function errorHandlerFactory() {
-  /* eslint-disable consistent-return */
-  return Router()
+  const writeError = logFunctionFactory.getErrorLogger('errorHandler');
+  return Router() // eslint-disable-line consistent-return
     .use((err, req, res, next) => {
       writeError('Error:', err);
       if (res.headersSent) {
