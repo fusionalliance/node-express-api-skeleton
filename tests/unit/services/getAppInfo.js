@@ -8,7 +8,11 @@ const commitSlug = 'abc123';
 const getAppInfo =
   proxyquire(
     '../../../src/services/getAppInfo',
-    { './getCommitSlug': commitSlug },
+    {
+      './getCommitSlug': () => new Promise((resolve) => {
+        resolve(commitSlug);
+      }),
+    },
   );
 
 chai.should();

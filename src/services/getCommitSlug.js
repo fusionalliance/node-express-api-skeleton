@@ -3,14 +3,18 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.resolve(__dirname, 'commitSlug.txt');
-
-let gitCommitSlug;
-
-if (fs.existsSync(filePath)) {
-  gitCommitSlug = fs.readFileSync(filePath, { encoding: 'utf8' })
-    .replace(/\n|\r/g, '')
-    .trim();
+function getCommitSlug() {
+  return new Promise((resolve) => {
+    const filePath = path.resolve(__dirname, 'commitSlug.txt');
+    let gitCommitSlug;
+    if (fs.existsSync(filePath)) {
+      gitCommitSlug = fs.readFileSync(filePath, { encoding: 'utf8' })
+        .replace(/\n|\r/g, '')
+        .trim();
+    }
+    resolve(gitCommitSlug);
+  });
 }
 
-module.exports = gitCommitSlug;
+
+module.exports = getCommitSlug;
