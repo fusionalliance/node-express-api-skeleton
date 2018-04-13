@@ -8,7 +8,7 @@ const commitSlug = 'abc123';
 const getAppInfo =
   proxyquire(
     '../../../src/services/getAppInfo',
-    { '../../scripts/getHerokuSourceVersion': commitSlug },
+    { './getCommitSlug': commitSlug },
   );
 
 chai.should();

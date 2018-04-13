@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.resolve(__dirname, 'herokuCommitSlug.txt');
+const filePath = path.resolve(__dirname, 'commitSlug.txt');
 
 let gitCommitSlug;
 

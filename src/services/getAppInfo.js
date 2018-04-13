@@ -3,7 +3,7 @@
 const express = require('express');
 const pkgJSON = require('../../package.json');
 const gitData = require('../services/getGitData');
-const herokuCommitSlug = require('../../scripts/getHerokuSourceVersion');
+const commitSlug = require('./getCommitSlug');
 
 const app = express();
 const env = app.get('env');
@@ -15,7 +15,7 @@ async function getAppInfo() {
       title: pkgJSON.name,
       environment: env,
       version: pkgJSON.version,
-      commit: herokuCommitSlug || gitInfo.long,
+      commit: commitSlug || gitInfo.long,
     });
   });
 }

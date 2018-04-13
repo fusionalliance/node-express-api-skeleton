@@ -1,1 +1,1 @@
-echo $SOURCE_VERSION > herokuCommitSlug.txt
+echo $SOURCE_VERSION > commitSlug.txt

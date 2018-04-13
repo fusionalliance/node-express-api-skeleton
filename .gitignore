@@ -43,4 +43,4 @@ node_modules
 .vscode/
 
 # Heroku file used to get commit slug
-scripts/herokuCommitSlug.txt
+scripts/commitSlug.txt
