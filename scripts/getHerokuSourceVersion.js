@@ -5,8 +5,12 @@ const path = require('path');
 
 const filePath = path.resolve(__dirname, 'herokuCommitSlug.txt');
 
-const tmp = fs.readFileSync(filePath, { encoding: 'utf8' })
-  .replace(/\n|\r/g, '')
-  .trim();
+let gitCommitSlug;
 
-module.exports = tmp;
+if (fs.existsSync(filePath)) {
+  gitCommitSlug = fs.readFileSync(filePath, { encoding: 'utf8' })
+    .replace(/\n|\r/g, '')
+    .trim();
+}
+
+module.exports = gitCommitSlug;

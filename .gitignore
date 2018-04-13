@@ -41,3 +41,6 @@ node_modules
 # IDE artifacts
 .vs/
 .vscode/
+
+# Heroku file used to get commit slug
+scripts/getHerokuSourceVersion.js
