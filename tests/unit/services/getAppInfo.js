@@ -1,14 +1,20 @@
 'use strict';
 
 const chai = require('chai');
-const getAppInfo = require('../../../src/services/getAppInfo');
 const pkgJSON = require('../../../package.json');
+const proxyquire = require('proxyquire');
+
+const commitSlug = 'abc123';
+const getAppInfo =
+  proxyquire(
+    '../../../src/services/getAppInfo',
+    { '../../scripts/getHerokuSourceVersion': commitSlug },
+  );
 
 chai.should();
 
 describe('getAppInfo', () => {
-  const commit = 'abc123';
-  process.env.HEROKU_SLUG_COMMIT = commit;
+  const commit = commitSlug;
 
   it('responds with correct app information', () => getAppInfo()
     .then((response) => {
