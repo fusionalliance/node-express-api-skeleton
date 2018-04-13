@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function getCommitSlug() {
+async function getCommitSlug() {
   return new Promise((resolve) => {
     const filePath = path.resolve(__dirname, 'commitSlug.txt');
     let gitCommitSlug;
