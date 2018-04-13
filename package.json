@@ -13,7 +13,8 @@
     "start": "node ./bin/www.js",
     "integration-test": "mocha --opts tests/integration.opts",
     "unit-test": "mocha --opts tests/unit.opts",
-    "test": "npm run unit-test && npm run integration-test"
+    "test": "npm run lint && npm run unit-test && npm run integration-test",
+    "heroku-prebuild": "node ./scripts/herokuPreBuildSourceVersion"
   },
   "dependencies": {
     "12factor-config": "^2.0.0",
