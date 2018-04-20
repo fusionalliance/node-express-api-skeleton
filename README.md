@@ -57,27 +57,13 @@ npm run unit-test
 
 ### Run the app
 
+Execute the following to run the app in debug mode, with auto-restart functionality provided by `nodemon`:
+
 ```bash
 npm run develop
 ```
 
 Then browse to `/api-docs` to view all of the paths supported by the API.
-
-#### Run the app in debug mode
-
-Follow these instructions to run the app in debug mode, with auto-restart functionality provided by `nodemon`:
-
-macOS:
-
-```bash
-DEBUG=fusion-node-express-api-skeleton:* npm run develop
-```
-
-Windows:
-
-```bash
-SET DEBUG=fusion-node-express-api-skeleton:* & npm run develop
-```
 
 ## Troubleshooting
 
@@ -96,6 +82,50 @@ git config --global core.eol lf
 ### Application or Tests Don't Work Due To Missing Dependencies
 
 * Re-run `npm install` to verify that your dependencies are up to date.
+
+### Debugging project locally with Visual Studio Code fails with 'Error: Required value not provided: appName'
+
+A launch.json file is necessary to use environment variables from the .env file when debugging the project locally.
+
+- Create a launch.json file in the project's .vscode folder with the following JSON contents:
+
+```JSON
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch API",
+      "program": "${workspaceFolder}/bin/www",
+      "envFile":"${workspaceFolder}/.env"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "-u",
+        "tdd",
+        "--timeout",
+        "999999",
+        "--colors",
+        "${workspaceFolder}/tests/**/*.js"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "envFile":"${workspaceFolder}/.env"
+    }
+  ]
+}
+```
+
+Notes: The supplied JSON code will add two debugging options, `Launch API` and `Run Tests` to the Visual Studio Code IDE: 
+
+- `Launch API` will start the API. The default endpoint is localhost:3000/api
+
+- `Run Tests` will execute all Mocha test scripts in the project and show the results in the DEBUG CONSOLE window.
 
 ### Everything Is Hosed!
 
