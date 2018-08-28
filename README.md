@@ -127,6 +127,9 @@ Notes: The supplied JSON code will add two debugging options, `Launch API` and `
 
 - `Run Tests` will execute all Mocha test scripts in the project and show the results in the DEBUG CONSOLE window.
 
+### I go to http://localhost:3000/ and I get "Error: Not Found".
+* There is nothing accessible at this root path. Instead, go to http://localhost:3000/api-docs.
+
 ### Everything Is Hosed!
 
 Sometimes you just need to completely reset your development environment. Execute the following commands to start from a "clean slate":
